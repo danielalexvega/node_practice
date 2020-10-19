@@ -1,0 +1,23 @@
+{
+  "name": "node_practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielalexvega/node_practice.git"
+  },
+  "author": "Daniel Vega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielalexvega/node_practice/issues"
+  },
+  "homepage": "https://github.com/danielalexvega/node_practice#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "validator": "^10.8.0"
+  }
+}
