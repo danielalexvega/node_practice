@@ -1,5 +1,5 @@
-const { DH_UNABLE_TO_CHECK_GENERATOR } = require('constants');
 const fs = require('fs');
+const chalk = require('chalk');
 
 const getNotes = () => 'Your notes...';
 
@@ -38,10 +38,10 @@ const removeNote = (title) => {
   const notes = loadNotes();
   const updatedNotes = notes.filter(note => note.title !== title);
   if (updatedNotes.length !== notes.length) {
-    console.log(`Removed note with title: ${title}`);
+    console.log(chalk.bgGreen.white(`Removed note with title: ${title}`));
     saveNotes(updatedNotes);
   } else {
-    console.log('That note title does not exist');
+    console.log(chalk.bgRed.white('That note title does not exist'));
   }
 }
 
