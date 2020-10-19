@@ -22,7 +22,7 @@ const addNote = (title, body) => {
   const notes = loadNotes();
   const duplicateNotes = notes.filter(note => note.title === title);
 
-  if(duplicateNotes.length === 0) {
+  if (duplicateNotes.length === 0) {
     notes.push({
       title: title,
       body: body
@@ -34,7 +34,19 @@ const addNote = (title, body) => {
   }
 }
 
+const removeNote = (title) => {
+  const notes = loadNotes();
+  const updatedNotes = notes.filter(note => note.title !== title);
+  if (updatedNotes.length !== notes.length) {
+    console.log(`Removed note with title: ${title}`);
+    saveNotes(updatedNotes);
+  } else {
+    console.log('That note title does not exist');
+  }
+}
+
 module.exports = {
   getNotes: getNotes,
-  addNote: addNote
+  addNote: addNote,
+  removeNote: removeNote
 };
