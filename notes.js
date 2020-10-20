@@ -26,9 +26,9 @@ const saveNotes = (notesArr) => {
 
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(note => note.title === title);
+  const duplicateNote = notes.find(note => note.title === title);
 
-  if (duplicateNotes.length === 0) {
+  if (!duplicateNote) {
     notes.push({
       title: title,
       body: body
@@ -52,8 +52,21 @@ const removeNote = (title) => {
   }
 }
 
+const readNote = title => {
+  const notes = loadNotes();
+  const note = notes.find(note => note.title === title);
+
+  if(note !== undefined) {
+    console.log(chalk.bgYellow.black(note.title));
+    console.log(chalk.yellow(note.body));
+  } else {
+    console.log(chalk.bgRed.white("No note found."));
+  }
+}
+
 module.exports = {
   listNotes: listNotes,
   addNote: addNote,
-  removeNote: removeNote
+  removeNote: removeNote,
+  readNote: readNote
 };
